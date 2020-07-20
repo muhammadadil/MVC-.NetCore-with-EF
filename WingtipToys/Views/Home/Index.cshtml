@@ -1,0 +1,56 @@
+﻿@model IEnumerable<WingtipToys.Models.ProductsDto>
+
+
+<section class="featured">
+    <div class="content-wrapper">
+        <hgroup class="title">
+            <h1>Products</h1>
+        </hgroup>        
+        <section class="featured">
+            <div style="margin-left: 2em">
+                <table>
+                    <tr>
+                        <td style="width: 30%;vertical-align:top;">
+                            <hgroup class="title">
+                                <h1>Wingtip Toys</h1>
+                                <h2>Wingtip Toys can help you find the perfect gift</h2>
+                            </hgroup>
+                            <p>
+                                We're all about transportation toys. You can order
+                                any of our toys today. Each toy listing has detailed
+                                information to help you choose the right toy.
+                            </p>
+                        </td>
+                        <td>
+                            <table>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.HiddenFor(modelItem => item.ProductId)
+                                        </td>
+                                        <td>
+                                            <img border="1" height="75" src="Assets/@item.ImagePath" width="100">
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ProductName)
+                                            <br>
+                                            <span class="ProductPrice">
+                                                <strong>Price:</strong>
+                                                $ @Html.DisplayFor(modelItem => item.UnitPrice)
+                                            </span>
+                                        </td>
+                                    </tr>
+                                }
+                            </table>
+                        </td>
+                    </tr>
+
+                </table>
+
+            </div>
+        </section>
+    </div>
+</section>
+
+<section class="content-wrapper main-content clear-fix"></section>
